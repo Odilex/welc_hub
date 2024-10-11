@@ -3,8 +3,9 @@ import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Login from './components/Login';
 import Signup from './components/Signup';
-import Dashboard from './components/Dashboard';
+import Dashboard from './components/dashboard';
 import Profile from './components/Profile';
+import PrivateRoute from './components/PrivateRoute';
 
 function App() {
   return (
@@ -15,8 +16,23 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/profile" element={<Profile />} />
+          {/* Protecting dashboard and profile routes */}
+          <Route
+            path="/dashboard"
+            element={
+              <PrivateRoute>
+                <Dashboard />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <PrivateRoute>
+                <Profile />
+              </PrivateRoute>
+            }
+          />
         </Routes>
       </div>
     </Router>
@@ -24,27 +40,3 @@ function App() {
 }
 
 export default App;
-
-import PrivateRoute from './components/PrivateRoute';
-
-<Routes>
-  <Route path="/" element={<Home />} />
-  <Route path="/login" element={<Login />} />
-  <Route path="/signup" element={<Signup />} />
-  <Route
-    path="/dashboard"
-    element={
-      <PrivateRoute>
-        <Dashboard />
-      </PrivateRoute>
-    }
-  />
-  <Route
-    path="/profile"
-    element={
-      <PrivateRoute>
-        <Profile />
-      </PrivateRoute>
-    }
-  />
-</Routes>
