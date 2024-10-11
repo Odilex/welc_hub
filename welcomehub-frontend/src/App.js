@@ -24,3 +24,27 @@ function App() {
 }
 
 export default App;
+
+import PrivateRoute from './components/PrivateRoute';
+
+<Routes>
+  <Route path="/" element={<Home />} />
+  <Route path="/login" element={<Login />} />
+  <Route path="/signup" element={<Signup />} />
+  <Route
+    path="/dashboard"
+    element={
+      <PrivateRoute>
+        <Dashboard />
+      </PrivateRoute>
+    }
+  />
+  <Route
+    path="/profile"
+    element={
+      <PrivateRoute>
+        <Profile />
+      </PrivateRoute>
+    }
+  />
+</Routes>
