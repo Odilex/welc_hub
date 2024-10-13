@@ -1,4 +1,5 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React from 'react';  // Import React (required if using JSX)
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; 
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Login from './components/Login';
@@ -18,7 +19,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           {/* Protecting dashboard and profile routes */}
           <Route
-            path="/dashboard"
+            path="/Dashboard"
             element={
               <PrivateRoute>
                 <Dashboard />
@@ -26,7 +27,7 @@ function App() {
             }
           />
           <Route
-            path="/profile"
+            path="/Profile"
             element={
               <PrivateRoute>
                 <Profile />
