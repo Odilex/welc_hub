@@ -1,0 +1,13 @@
+numpy
+pandas
+scikit-learn
+tensorflow
+keras
+torch
+transformers
+nltk
+spacy
+flask
+fastapi
+requests
+beautifulsoup4
