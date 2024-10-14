@@ -1,72 +1,51 @@
-import { useState } from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
 
 function Signup() {
-  const [username, setUsername] = useState('');
+  // State to store email, password, and error message
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-  const [success, setSuccess] = useState('');
+  const [error, setError] = useState(null);
 
-  const handleSignup = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await axios.post('http://localhost:5000/api/signup', {
-        username,
-        email,
-        password,
-      });
-      setSuccess('Signup successful! You can now log in.');
-      setError('');
-    } catch (error) {
-      setError('Signup failed. Please try again.');
-      setSuccess('');
+  const handleSignup = (event) => {
+    event.preventDefault();
+    
+    if (!email || !password) {
+      setError('Email and password are required.');
+      return;
     }
+
+    // Perform signup logic here
+    console.log("Signing up with", email, password);
+
+    // Reset the error if any
+    setError(null);
   };
 
   return (
     <div>
-      <h2>Signup</h2>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      {success && <p style={{ color: 'green' }}>{success}</p>}
+      <h2>Sign Up</h2>
       <form onSubmit={handleSignup}>
-        <label>Username:</label>
-        <input
-          type="text"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <label>Email:</label>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <label>Password:</label>
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button type="submit">Signup</button>
+        <div>
+          <label>Email:</label>
+          <input 
+            type="email" 
+            value={email} 
+            onChange={(e) => setEmail(e.target.value)} 
+          />
+        </div>
+        <div>
+          <label>Password:</label>
+          <input 
+            type="password" 
+            value={password} 
+            onChange={(e) => setPassword(e.target.value)} 
+          />
+        </div>
+        {error && <p style={{ color: 'red' }}>{error}</p>}
+        <button type="submit">Sign Up</button>
       </form>
     </div>
   );
 }
 
 export default Signup;
-
-const handleLogin = async (e) => {
-  e.preventDefault();
-  try {
-    const response = await axios.post('http://localhost:5000/api/login', {
-      email,
-      password,
-    });
-    localStorage.setItem('token', response.data.token); // Store token
-    window.location.href = '/dashboard'; // Redirect to dashboard
-    setError('');
-  } catch (error) {
-    setError('Login failed. Please check your credentials.');
-  }
-};

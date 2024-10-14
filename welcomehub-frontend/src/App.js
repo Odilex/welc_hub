@@ -1,11 +1,11 @@
 import React from 'react';  // Import React (required if using JSX)
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; 
-import Navbar from './components/Navbar';
-import Home from './components/Home';
-import Login from './components/Login';
-import Signup from './components/Signup';
+import Navbar from './components/navbar';
+import Home from './components/home';
+import Login from './components/login';
+import Signup from './components/signup';
 import Dashboard from './components/dashboard';
-import Profile from './components/Profile';
+import Profile from './components/profile';
 import PrivateRoute from './components/PrivateRoute';
 
 function App() {
