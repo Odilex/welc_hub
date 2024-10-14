@@ -1,51 +1,39 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { signup } from '../api';
 
-function Signup() {
-  // State to store email, password, and error message
+const Signup = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
 
-  const handleSignup = (event) => {
-    event.preventDefault();
-    
-    if (!email || !password) {
-      setError('Email and password are required.');
-      return;
+  const handleSignup = async (e) => {
+    e.preventDefault();
+    try {
+      const data = await signup({ email, password });
+      console.log('Signup successful', data);
+    } catch (err) {
+      setError(err.message);
     }
-
-    // Perform signup logic here
-    console.log("Signing up with", email, password);
-
-    // Reset the error if any
-    setError(null);
   };
 
   return (
-    <div>
-      <h2>Sign Up</h2>
-      <form onSubmit={handleSignup}>
-        <div>
-          <label>Email:</label>
-          <input 
-            type="email" 
-            value={email} 
-            onChange={(e) => setEmail(e.target.value)} 
-          />
-        </div>
-        <div>
-          <label>Password:</label>
-          <input 
-            type="password" 
-            value={password} 
-            onChange={(e) => setPassword(e.target.value)} 
-          />
-        </div>
-        {error && <p style={{ color: 'red' }}>{error}</p>}
-        <button type="submit">Sign Up</button>
-      </form>
-    </div>
+    <form onSubmit={handleSignup}>
+      <input
+        type="email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        placeholder="Email"
+      />
+      <input
+        type="password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        placeholder="Password"
+      />
+      {error && <p>{error}</p>}
+      <button type="submit">Signup</button>
+    </form>
   );
-}
+};
 
 export default Signup;
