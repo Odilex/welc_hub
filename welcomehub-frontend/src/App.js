@@ -7,6 +7,7 @@ import Signup from './components/signup';
 import Dashboard from './components/dashboard';
 import Profile from './components/profile';
 import PrivateRoute from './components/PrivateRoute';
+import EnhancedDashboard from './components/EnhancedDashboard'; // Import the new EnhancedDashboard component
 
 function App() {
   return (
