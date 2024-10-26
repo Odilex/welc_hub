@@ -24,7 +24,7 @@ import React from 'react';
 
 // Define custom props, and extend HTML button props
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'ghost' | 'primary' | 'secondary' |'link'; // Customize variant types
+  variant: "link" | "ghost" | "primary" | "secondary";  // Customize variant types
   size?: 'small' | 'medium' | 'large' | 'icon'; // Customize size types
 }
 
