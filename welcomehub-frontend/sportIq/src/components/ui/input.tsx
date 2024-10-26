@@ -7,6 +7,7 @@ interface InputProps {
   placeholder?: string;
   required?: boolean;
   style?: React.CSSProperties;
+  className?: string;
 }
 
 const Input: React.FC<InputProps> = ({ type = 'text', value, onChange, placeholder, required = false, style }) => {

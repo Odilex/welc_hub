@@ -9,4 +9,4 @@ const Label: React.FC<LabelProps> = ({ htmlFor, labelText }) => {
   return <label htmlFor={htmlFor}>{labelText}</label>;
 };
 
-export default 'Label' ,
+export default 'Label';

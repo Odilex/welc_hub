@@ -1,12 +1,13 @@
 'use client'
 
 import { useState } from 'react'
+type SelectValue = string; 
 import { motion } from 'framer-motion'
-import  Button  from "components/ui/button"
-import  input  from "components/ui/input"
-import  label  from "components/ui/label"
-import Select/*{ Select, SelectContent, SelectItem, SelectTrigger, SelectValue }*/ from "components/ui/select"
-import { SelectTrigger } from 'components/ui/select';
+import Button from '@/components/ui/button'
+import Input from '@/components/ui/input'
+import  label  from "@/components/ui/label"
+import Select/*{ Select, SelectContent, SelectItem, SelectTrigger, SelectValue }*/ from "@/components/ui/select"
+import { SelectTrigger } from '@/components/ui/select';
 
 export default function SportIQAuth() {
   const [isSignUp, setIsSignUp] = useState(false)
@@ -16,6 +17,13 @@ export default function SportIQAuth() {
   const [lastName, setLastName] = useState('')
   const [dateOfBirth, setDateOfBirth] = useState('')
   const [gender, setGender] = useState('')
+  const Login: React.FC = () => {
+    const [selectedValue, setSelectedValue] = useState<string>(''); // State for selected value
+
+    // Define handleValueChange function
+    const handleValueChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        setSelectedValue(event.target.value); // Update state with the selected value
+    };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -128,11 +136,11 @@ export default function SportIQAuth() {
               </div>
               <div className="space-y-2">
                 <label htmlFor="gender">Gender</label>
-                <select onValueChange={setGender}>
+                <select onChange={handleValueChange}>
                   <SelectTrigger>
                     <SelectValue placeholder="Select gender" />
                   </SelectTrigger>
-                  <SelectContent>
+                  <electContent>
                     <SelectItem value="male">Male</SelectItem>
                     <SelectItem value="female">Female</SelectItem>
                     <SelectItem value="other">Other</SelectItem>
@@ -174,11 +182,12 @@ export default function SportIQAuth() {
         </form>
         <p className="text-center mt-6">
           {isSignUp ? 'Already have an account?' : "Don't have an account?"}{' '}
-          <button variant="link" className="p-0 h-auto" onClick={() => setIsSignUp(!isSignUp)}>
+          <button 
+              variant="link" className="p-0 h-auto" onClick={() => setIsSignUp(!isSignUp)}>
             {isSignUp ? 'Log in' : 'Sign up'}
           </button>
         </p>
       </motion.div>
     </div>
   )
-}
+}}
