@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion'
 import { ArrowRight, Sun, Moon, Search, MapPin, Calendar, Ticket, Hotel, Car, Star, Gift, ChevronDown, ShoppingCart, MessageCircle, X } from 'lucide-react'
-import Button from '@/components/ui/button'
-import Input from '@/components/ui/input'
+import Button from 'components/ui/button'
+import Input from 'components/ui/input'
 import Link from 'next/link'
 import { useChat } from '../hooks/useChat';
 
