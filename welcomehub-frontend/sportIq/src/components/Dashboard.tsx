@@ -2,19 +2,11 @@
 
 import { useState, useEffect } from "react"
 import { Bell, Home, MapPin, Settings, Sun, Wallet2, Calendar, Bus, Coffee, Beer, Cloud } from "lucide-react"
-<<<<<<< HEAD
-import { Button } from "components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "components/ui/card"
-import { Input } from "components/ui/input"
-import { Separator } from "components/ui/separator"
-import { useToast } from "components/ui/use-toast"
-=======
-import { Button } from "@/components/ui/button"
+import  Button  from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@components/ui/input"
-import { Separator } from "@/components/ui/separator"
-import { useToast } from "@/components/ui/use-toast"
->>>>>>> 0fee2f14336e8c069d50fdc4606878f111fc0101
+import  Input  from "@components/ui/input"
+import  Separator  from "@/components/ui/separator"
+import  useToast  from "@/components/ui/use-toast"
 
 export default function Component() {
   const [activeSection, setActiveSection] = useState("Dashboard")
@@ -237,7 +229,7 @@ export default function Component() {
           <div className="bg-gray-100 p-4 rounded-lg">
             <h3 className="font-bold mb-2">Need Help?</h3>
             <p className="text-sm mb-4">Our travel experts are here to assist you.</p>
-            <Button className="w-full">Contact Support</Button>
+            <button className="w-full">Contact Support</button>
           </div>
         </div>
       </aside>
@@ -251,7 +243,7 @@ export default function Component() {
           </div>
           <div className="flex items-center space-x-4">
             <Input type="search" placeholder="Search" className="w-64" />
-            <Button>Explore</Button>
+            <button>Explore</button>
             <Button variant="ghost" size="icon">
               <Bell className="h-5 w-5" />
               <span className="sr-only">Notifications</span>
