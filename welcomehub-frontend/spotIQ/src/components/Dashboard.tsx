@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Separator } from "@/components/ui/separator"
 import { useToast } from "@/components/ui/use-toast"
 
+// Main functional component
 export default function Component() {
   const [activeSection, setActiveSection] = useState("Dashboard")
   const [weather, setWeather] = useState({ temp: 22, condition: "Partly cloudy" })
@@ -15,18 +16,17 @@ export default function Component() {
   const [walletBalance, setWalletBalance] = useState(1000)
   const { toast } = useToast()
 
+  // Simulated data fetch in useEffect
   useEffect(() => {
-    // Simulating geolocation fetch
-    setLocation({ lat: -1.9441, lon: 30.0619 }) // Coordinates for Kigali, Rwanda
-    
-    // Simulating weather fetch
+    setLocation({ lat: -1.9441, lon: 30.0619 }) // Example coordinates for Kigali, Rwanda
+
     const fetchWeather = async () => {
-      // In a real app, you'd fetch actual weather data here
       setWeather({ temp: Math.floor(Math.random() * 15) + 20, condition: Math.random() > 0.5 ? "Sunny" : "Rainy" })
     }
     fetchWeather()
   }, [])
 
+  // Sidebar items data
   const sidebarItems = [
     { name: "Dashboard", icon: Home },
     { name: "Wallet", icon: Wallet2 },
@@ -36,24 +36,22 @@ export default function Component() {
     { name: "Weather", icon: Sun },
   ]
 
+  // Functions for recommendations
   const getDrinkRecommendation = () => {
-    if (weather.condition === "Sunny") {
-      return "On this sunny day, we recommend visiting Inzora Rooftop Cafe for refreshing drinks with a view!"
-    } else {
-      return "It's a bit rainy today. How about warming up with a coffee at Question Coffee Cafe?"
-    }
+    return weather.condition === "Sunny"
+      ? "On this sunny day, visit Inzora Rooftop Cafe for refreshing drinks with a view!"
+      : "It's rainy today. How about warming up with coffee at Question Coffee Cafe?"
   }
 
   const getWalletAdvice = () => {
-    if (walletBalance < 500) {
-      return "Your balance is running low. Consider topping up or finding budget-friendly options."
-    } else if (walletBalance < 2000) {
-      return "You have a moderate balance. Enjoy your activities while keeping an eye on your spending."
-    } else {
-      return "Your balance is healthy! Feel free to splurge on premium experiences."
-    }
+    return walletBalance < 500
+      ? "Balance is low. Consider budget-friendly options."
+      : walletBalance < 2000
+      ? "Moderate balance. Enjoy but keep an eye on spending."
+      : "Balance is healthy! Feel free to enjoy premium experiences."
   }
 
+  // Section data and dynamic content
   const sectionData = {
     Dashboard: {
       title: "Welcome, Michael!",
@@ -61,18 +59,14 @@ export default function Component() {
       content: (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <Card>
-            <CardHeader>
-              <CardTitle>Wallet Balance</CardTitle>
-            </CardHeader>
+            <CardHeader><CardTitle>Wallet Balance</CardTitle></CardHeader>
             <CardContent>
               <p className="text-3xl font-bold">{walletBalance} RWF</p>
               <p className="text-sm text-gray-600">Available balance</p>
             </CardContent>
           </Card>
           <Card>
-            <CardHeader>
-              <CardTitle>Upcoming Event</CardTitle>
-            </CardHeader>
+            <CardHeader><CardTitle>Upcoming Event</CardTitle></CardHeader>
             <CardContent>
               <p className="font-bold">Kigali Jazz Festival</p>
               <p className="text-sm text-gray-600">2023-07-15</p>
@@ -80,9 +74,7 @@ export default function Component() {
             </CardContent>
           </Card>
           <Card>
-            <CardHeader>
-              <CardTitle>Weather</CardTitle>
-            </CardHeader>
+            <CardHeader><CardTitle>Weather</CardTitle></CardHeader>
             <CardContent>
               <p className="text-3xl font-bold">{weather.temp}°C</p>
               <p className="text-sm text-gray-600">{weather.condition}</p>
@@ -96,9 +88,7 @@ export default function Component() {
       subtitle: "Manage your finances",
       content: (
         <Card>
-          <CardHeader>
-            <CardTitle>Transaction History</CardTitle>
-          </CardHeader>
+          <CardHeader><CardTitle>Transaction History</CardTitle></CardHeader>
           <CardContent>
             <p>Your recent transactions will appear here.</p>
           </CardContent>
@@ -110,9 +100,7 @@ export default function Component() {
       subtitle: "Find your perfect stay",
       content: (
         <Card>
-          <CardHeader>
-            <CardTitle>Saved Accommodations</CardTitle>
-          </CardHeader>
+          <CardHeader><CardTitle>Saved Accommodations</CardTitle></CardHeader>
           <CardContent>
             <div className="h-96 bg-gray-200 rounded-lg">
               <p className="text-center pt-40">Map placeholder</p>
@@ -126,9 +114,7 @@ export default function Component() {
       subtitle: "Discover what's happening",
       content: (
         <Card>
-          <CardHeader>
-            <CardTitle>Upcoming Events</CardTitle>
-          </CardHeader>
+          <CardHeader><CardTitle>Upcoming Events</CardTitle></CardHeader>
           <CardContent>
             <p>Event listings will appear here.</p>
           </CardContent>
@@ -140,9 +126,7 @@ export default function Component() {
       subtitle: "Plan your journey",
       content: (
         <Card>
-          <CardHeader>
-            <CardTitle>Transport Options</CardTitle>
-          </CardHeader>
+          <CardHeader><CardTitle>Transport Options</CardTitle></CardHeader>
           <CardContent>
             <p>Available transport options will be listed here.</p>
           </CardContent>
@@ -155,9 +139,7 @@ export default function Component() {
       content: (
         <div className="space-y-6">
           <Card>
-            <CardHeader>
-              <CardTitle>Current Weather</CardTitle>
-            </CardHeader>
+            <CardHeader><CardTitle>Current Weather</CardTitle></CardHeader>
             <CardContent>
               <div className="flex items-center justify-between">
                 <div>
@@ -173,27 +155,24 @@ export default function Component() {
             </CardContent>
           </Card>
           <Card>
-            <CardHeader>
-              <CardTitle>Weather Map</CardTitle>
-            </CardHeader>
+            <CardHeader><CardTitle>Weather Map</CardTitle></CardHeader>
             <CardContent>
               <div className="aspect-video rounded-lg overflow-hidden">
-                <iframe
-                  src={`https://map.worldweatheronline.com/?lat=${location?.lat}&lon=${location?.lon}&zoom=10`}
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                ></iframe>
+                {location && (
+                  <iframe
+                    src={`https://map.worldweatheronline.com/?lat=${location.lat}&lon=${location.lon}&zoom=10`}
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                  ></iframe>
+                )}
               </div>
             </CardContent>
           </Card>
           <Card>
-            <CardHeader>
-              <CardTitle>Local Recommendations</CardTitle>
-            </CardHeader>
+            <CardHeader><CardTitle>Local Recommendations</CardTitle></CardHeader>
             <CardContent>
               <p className="mb-4">{getDrinkRecommendation()}</p>
               <p>{getWalletAdvice()}</p>
@@ -206,7 +185,6 @@ export default function Component() {
 
   return (
     <div className="flex h-screen bg-gray-100">
-      {/* Left Sidebar */}
       <aside className="w-64 bg-white p-6 flex flex-col">
         <div className="flex items-center mb-8">
           <MapPin className="w-8 h-8 mr-2" />
@@ -234,37 +212,18 @@ export default function Component() {
         </div>
       </aside>
 
-      {/* Main Content */}
       <main className="flex-1 p-8 overflow-auto">
         <div className="flex justify-between items-center mb-8">
           <div>
             <h2 className="text-3xl font-bold">{sectionData[activeSection].title}</h2>
             <p className="text-gray-600">{sectionData[activeSection].subtitle}</p>
           </div>
-          <div className="flex items-center space-x-4">
-            <Input type="search" placeholder="Search" className="w-64" />
-            <Button>Explore</Button>
-            <Button variant="ghost" size="icon">
-              <Bell className="h-5 w-5" />
-              <span className="sr-only">Notifications</span>
-            </Button>
-            <Button variant="ghost" size="icon">
-              <Settings className="h-5 w-5" />
-              <span className="sr-only">Settings</span>
-            </Button>
-            <Button variant="ghost" size="icon">
-              <Sun className="h-5 w-5" />
-              <span className="sr-only">Theme</span>
-            </Button>
-            <Button variant="ghost" size="icon">
-              <img
-                src="/placeholder.svg?height=32&width=32"
-                alt="User profile"
-                className="w-8 h-8 rounded-full"
-              />
-              <span className="sr-only">User profile</span>
-            </Button>
-          </div>
+          <Button variant="ghost" className="relative">
+            <Bell className="w-6 h-6" />
+            <span className="absolute -top-1 -right-1 text-xs font-bold bg-red-500 text-white rounded-full h-5 w-5 flex items-center justify-center">
+              3
+            </span>
+          </Button>
         </div>
 
         {sectionData[activeSection].content}
