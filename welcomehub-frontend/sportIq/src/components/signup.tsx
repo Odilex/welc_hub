@@ -76,12 +76,12 @@ export default function Signup() {
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
-          <Button
+          <button
             type="submit"
             className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition duration-300"
           >
             Sign up
-          </Button>
+          </button>
         </form>
         <div className="mt-4 text-center">
           <span className="text-gray-500">Or</span>
@@ -99,18 +99,18 @@ export default function Signup() {
             </svg>
             Sign up with Google
           </Button>
-          <Button
+          <button
             className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition duration-300"
           >
             <Facebook className="w-5 h-5 mr-2" />
             Sign up with Facebook
-          </Button>
-          <Button
+          </button>
+          <button
             className="w-full bg-black text-white py-2 px-4 rounded-md hover:bg-gray-800 transition duration-300"
           >
             <Apple className="w-5 h-5 mr-2" />
             Sign up with Apple
-          </Button>
+          </button>
         </div>
         <div className="mt-6 text-center text-sm">
           <span className="text-gray-600">Already have an account? </span>

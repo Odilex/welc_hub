@@ -7,7 +7,7 @@ import Button from '@/components/ui/button'
 import Input from '@/components/ui/input'
 import  label  from "@/components/ui/label"
 import Select/*{ Select, SelectContent, SelectItem, SelectTrigger, SelectValue }*/ from "@/components/ui/select"
-import { SelectTrigger } from '@/components/ui/select';
+import  SelectTrigger  from '@/components/ui/select';
 
 export default function SportIQAuth() {
   const [isSignUp, setIsSignUp] = useState(false)
@@ -145,7 +145,7 @@ export default function SportIQAuth() {
                     <SelectItem value="female">Female</SelectItem>
                     <SelectItem value="other">Other</SelectItem>
                   </SelectContent>
-                </Select>
+                </select>
               </div>
             </>
           )}
@@ -172,9 +172,9 @@ export default function SportIQAuth() {
             />
           </div>
           {!isSignUp && (
-            <button variant="link" className="p-0 h-auto">
+            <Button variant="link" className="p-0 h-auto">
               Forgot password?
-            </button>
+            </Button>
           )}
           <button type="submit" className="w-full">
             {isSignUp ? 'Sign Up' : 'Log In'}
@@ -182,10 +182,10 @@ export default function SportIQAuth() {
         </form>
         <p className="text-center mt-6">
           {isSignUp ? 'Already have an account?' : "Don't have an account?"}{' '}
-          <button 
+          <Button 
               variant="link" className="p-0 h-auto" onClick={() => setIsSignUp(!isSignUp)}>
             {isSignUp ? 'Log in' : 'Sign up'}
-          </button>
+          </Button>
         </p>
       </motion.div>
     </div>

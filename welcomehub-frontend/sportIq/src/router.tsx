@@ -1,18 +1,16 @@
+// src/Router.tsx
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import App from './App';
-import Home from './components/Home';
-import About from './components/About';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from '@/components/Home';
 
-const Router: React.FC = () => (
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<App />}>
-        <Route index element={<Home />} />
-        <Route path="about" element={<About />} />
-      </Route>
-    </Routes>
-  </BrowserRouter>
-);
+const AppRouter: React.FC = () => {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </Router>
+  );
+};
 
-export default Router;
+export default AppRouter;

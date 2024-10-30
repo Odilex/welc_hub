@@ -1,12 +1,12 @@
-'use client'
+/*'use client'
 
 import { useState, useEffect } from "react"
 import { Bell, Home, MapPin, Settings, Sun, Wallet2, Calendar, Bus, Coffee, Beer, Cloud } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Separator } from "@/components/ui/separator"
-import { useToast } from "@/components/ui/use-toast"
+import { Card, CardContent, CardHeader, CardTitle  from "@/components/ui/card"
+import  Input  from "@/components/ui/input"
+import  Separator  from "@/components/ui/separator"
+import  useToast  from "@/components/ui/use-toast"
 
 export default function Component() {
   const [activeSection, setActiveSection] = useState("Dashboard")
@@ -179,7 +179,7 @@ export default function Component() {
             <CardContent>
               <div className="aspect-video rounded-lg overflow-hidden">
                 <iframe
-                  src={`https://map.worldweatheronline.com/?lat=${location?.lat}&lon=${location?.lon}&zoom=10`}
+                  //src={`https://map.worldweatheronline.com/?lat=${location?.lat}&lon=${location?.lon}&zoom=10`}
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -206,7 +206,7 @@ export default function Component() {
 
   return (
     <div className="flex h-screen bg-gray-100">
-      {/* Left Sidebar */}
+      {/* Left Sidebar }
       <aside className="w-64 bg-white p-6 flex flex-col">
         <div className="flex items-center mb-8">
           <MapPin className="w-8 h-8 mr-2" />
@@ -234,7 +234,7 @@ export default function Component() {
         </div>
       </aside>
 
-      {/* Main Content */}
+      {/* Main Content }
       <main className="flex-1 p-8 overflow-auto">
         <div className="flex justify-between items-center mb-8">
           <div>
@@ -271,4 +271,4 @@ export default function Component() {
       </main>
     </div>
   )
-}
+}*/

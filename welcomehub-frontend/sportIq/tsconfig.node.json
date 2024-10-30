@@ -14,13 +14,12 @@
     "moduleResolution": "node",
 
 
-    /* Bundler mode */
-    "allowImportingTsExtensions": true,
+
+    "allowImportingTsExtensions": false,
     "isolatedModules": true,
     "moduleDetection": "force",
     "noEmit": false,
 
-    /* Linting */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,

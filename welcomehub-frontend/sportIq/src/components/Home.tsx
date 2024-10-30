@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion'
-import { ArrowRight, Sun, Moon, Search, MapPin, Calendar, Ticket, Hotel, Car, Star, Gift, ChevronDown, ShoppingCart, MessageCircle, X } from 'lucide-react'
+import { ArrowRight, Sun, Moon, Search, MapPin, Ticket, Hotel, Car, Star, Gift, ChevronDown, ShoppingCart, MessageCircle, X } from 'lucide-react'
 import Button from '@/components/ui/button'
 import Input from '@/components/ui/input'
 import Link from 'next/link';
@@ -116,7 +116,7 @@ const AIChat = () => {
   )
 }
 
-export default function HomePage() {
+export default function Home() {
   const [darkMode, setDarkMode] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [hasScrolled, setHasScrolled] = useState(false)
