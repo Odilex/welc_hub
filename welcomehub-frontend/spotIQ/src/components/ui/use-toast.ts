@@ -1,4 +1,3 @@
-// File: components/ui/use-toast.ts
 import { useState } from 'react';
 
 const useToast = () => {
