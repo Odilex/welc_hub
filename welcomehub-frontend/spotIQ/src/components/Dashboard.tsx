@@ -1,14 +1,11 @@
-'use client'
-
 import { useState, useEffect } from "react"
 import { Bell, Home, MapPin, Settings, Sun, Wallet2, Calendar, Bus, Coffee, Beer, Cloud } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import Button from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Separator } from "@/components/ui/separator"
-import { useToast } from "@/components/ui/use-toast" 
+import Input from "@/components/ui/input"
+import Separator from "@/components/ui/separator"
+import useToast from "@/components/ui/use-toast"
 
-// Main functional component
 export default function Component() {
   const [activeSection, setActiveSection] = useState("Dashboard")
   const [weather, setWeather] = useState({ temp: 22, condition: "Partly cloudy" })
@@ -16,9 +13,8 @@ export default function Component() {
   const [walletBalance, setWalletBalance] = useState(1000)
   const { toast } = useToast()
 
-  // Simulated data fetch in useEffect
   useEffect(() => {
-    setLocation({ lat: -1.9441, lon: 30.0619 }) // Example coordinates for Kigali, Rwanda
+    setLocation({ lat: -1.9441, lon: 30.0619 })
 
     const fetchWeather = async () => {
       setWeather({ temp: Math.floor(Math.random() * 15) + 20, condition: Math.random() > 0.5 ? "Sunny" : "Rainy" })
@@ -26,7 +22,6 @@ export default function Component() {
     fetchWeather()
   }, [])
 
-  // Sidebar items data
   const sidebarItems = [
     { name: "Dashboard", icon: Home },
     { name: "Wallet", icon: Wallet2 },
@@ -36,7 +31,6 @@ export default function Component() {
     { name: "Weather", icon: Sun },
   ]
 
-  // Functions for recommendations
   const getDrinkRecommendation = () => {
     return weather.condition === "Sunny"
       ? "On this sunny day, visit Inzora Rooftop Cafe for refreshing drinks with a view!"
@@ -51,7 +45,6 @@ export default function Component() {
       : "Balance is healthy! Feel free to enjoy premium experiences."
   }
 
-  // Section data and dynamic content
   const sectionData = {
     Dashboard: {
       title: "Welcome, Michael!",
@@ -59,14 +52,18 @@ export default function Component() {
       content: (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <Card>
-            <CardHeader><CardTitle>Wallet Balance</CardTitle></CardHeader>
+            <CardHeader>
+              <CardTitle>Wallet Balance</CardTitle>
+            </CardHeader>
             <CardContent>
               <p className="text-3xl font-bold">{walletBalance} RWF</p>
               <p className="text-sm text-gray-600">Available balance</p>
             </CardContent>
           </Card>
           <Card>
-            <CardHeader><CardTitle>Upcoming Event</CardTitle></CardHeader>
+            <CardHeader>
+              <CardTitle>Upcoming Event</CardTitle>
+            </CardHeader>
             <CardContent>
               <p className="font-bold">Kigali Jazz Festival</p>
               <p className="text-sm text-gray-600">2023-07-15</p>
@@ -74,7 +71,9 @@ export default function Component() {
             </CardContent>
           </Card>
           <Card>
-            <CardHeader><CardTitle>Weather</CardTitle></CardHeader>
+            <CardHeader>
+              <CardTitle>Weather</CardTitle>
+            </CardHeader>
             <CardContent>
               <p className="text-3xl font-bold">{weather.temp}°C</p>
               <p className="text-sm text-gray-600">{weather.condition}</p>
@@ -88,7 +87,9 @@ export default function Component() {
       subtitle: "Manage your finances",
       content: (
         <Card>
-          <CardHeader><CardTitle>Transaction History</CardTitle></CardHeader>
+          <CardHeader>
+            <CardTitle>Transaction History</CardTitle>
+          </CardHeader>
           <CardContent>
             <p>Your recent transactions will appear here.</p>
           </CardContent>
@@ -100,7 +101,9 @@ export default function Component() {
       subtitle: "Find your perfect stay",
       content: (
         <Card>
-          <CardHeader><CardTitle>Saved Accommodations</CardTitle></CardHeader>
+          <CardHeader>
+            <CardTitle>Saved Accommodations</CardTitle>
+          </CardHeader>
           <CardContent>
             <div className="h-96 bg-gray-200 rounded-lg">
               <p className="text-center pt-40">Map placeholder</p>
@@ -114,7 +117,9 @@ export default function Component() {
       subtitle: "Discover what's happening",
       content: (
         <Card>
-          <CardHeader><CardTitle>Upcoming Events</CardTitle></CardHeader>
+          <CardHeader>
+            <CardTitle>Upcoming Events</CardTitle>
+          </CardHeader>
           <CardContent>
             <p>Event listings will appear here.</p>
           </CardContent>
@@ -126,7 +131,9 @@ export default function Component() {
       subtitle: "Plan your journey",
       content: (
         <Card>
-          <CardHeader><CardTitle>Transport Options</CardTitle></CardHeader>
+          <CardHeader>
+            <CardTitle>Transport Options</CardTitle>
+          </CardHeader>
           <CardContent>
             <p>Available transport options will be listed here.</p>
           </CardContent>
@@ -139,7 +146,9 @@ export default function Component() {
       content: (
         <div className="space-y-6">
           <Card>
-            <CardHeader><CardTitle>Current Weather</CardTitle></CardHeader>
+            <CardHeader>
+              <CardTitle>Current Weather</CardTitle>
+            </CardHeader>
             <CardContent>
               <div className="flex items-center justify-between">
                 <div>
@@ -155,7 +164,9 @@ export default function Component() {
             </CardContent>
           </Card>
           <Card>
-            <CardHeader><CardTitle>Weather Map</CardTitle></CardHeader>
+            <CardHeader>
+              <CardTitle>Weather Map</CardTitle>
+            </CardHeader>
             <CardContent>
               <div className="aspect-video rounded-lg overflow-hidden">
                 {location && (
@@ -172,7 +183,9 @@ export default function Component() {
             </CardContent>
           </Card>
           <Card>
-            <CardHeader><CardTitle>Local Recommendations</CardTitle></CardHeader>
+            <CardHeader>
+              <CardTitle>Local Recommendations</CardTitle>
+            </CardHeader>
             <CardContent>
               <p className="mb-4">{getDrinkRecommendation()}</p>
               <p>{getWalletAdvice()}</p>
@@ -207,7 +220,7 @@ export default function Component() {
           <div className="bg-gray-100 p-4 rounded-lg">
             <h3 className="font-bold mb-2">Need Help?</h3>
             <p className="text-sm mb-4">Our travel experts are here to assist you.</p>
-            <Button className="w-full">Contact Support</Button>
+            <button className="w-full">Contact Support</button>
           </div>
         </div>
       </aside>
@@ -218,16 +231,23 @@ export default function Component() {
             <h2 className="text-3xl font-bold">{sectionData[activeSection].title}</h2>
             <p className="text-gray-600">{sectionData[activeSection].subtitle}</p>
           </div>
-          <Button variant="ghost" className="relative">
-            <Bell className="w-6 h-6" />
-            <span className="absolute -top-1 -right-1 text-xs font-bold bg-red-500 text-white rounded-full h-5 w-5 flex items-center justify-center">
-              3
-            </span>
-          </Button>
-        </div>
-
-        {sectionData[activeSection].content}
-      </main>
-    </div>
-  )
-}
+          <div className="flex items-center space-x-4">
+            <Input type="search" placeholder="Search" className="w-64" />
+            <button>Explore</button>
+            <Button variant="ghost" size="icon">
+              <Bell className="h-5 w-5" />
+              <span className="sr-only">Notifications</span>
+            </Button>
+            <Button variant="ghost" size="icon">
+              <Settings className="h-5 w-5" />
+              <span className="sr-only">Settings</span>
+            </Button>
+            <Button variant="ghost" size="icon">
+              <Sun className="h-5 w-5" />
+              <span className="sr-only">Theme</span>
+            </Button>
+            <Button variant="ghost" size="icon">
+              <img
+                src="/placeholder.svg?height=32&width=32"
+                alt="User profile"
+                className="w-8 h-8 rounded
