@@ -1,13 +1,12 @@
-// src/App.tsx
-import React from 'react';
-import AppRouter from '@/router';
+import React from 'react'
+import Home from '@/components/Home'
 
-const App: React.FC = () => {
+function App() {
   return (
     <div className="App">
-      <AppRouter />
+      <Home />
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App
