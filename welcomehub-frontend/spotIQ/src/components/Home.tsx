@@ -149,7 +149,7 @@ export default function HomePage() {
             <Button variant="ghost" size="sm" onClick={toggleDarkMode} className="rounded-full">
               {darkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </Button>
-            <Select>
+            <select>
               <SelectTrigger className="w-[100px] rounded-full">
                 <SelectValue placeholder="English" />
               </SelectTrigger>
@@ -158,7 +158,7 @@ export default function HomePage() {
                 <SelectItem value="fr">Français</SelectItem>
                 <SelectItem value="de">Deutsch</SelectItem>
               </SelectContent>
-            </Select>
+            </select>
             <Link href="/login">
               <button variant="ghost" size="sm" className="rounded-full">Sign in</Button>
             </Link>
