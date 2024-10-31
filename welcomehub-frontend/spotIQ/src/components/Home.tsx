@@ -1,10 +1,24 @@
 import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion'
 import { ArrowRight, Sun, Moon, Search, MapPin, Ticket, Hotel, Car, Star, Gift, ChevronDown, ShoppingCart, MessageCircle, X } from 'lucide-react'
 import Button from '@/components/ui/button'
 import Input from '@/components/ui/input'
+import Link from 'next/link'
+import useChat from '@/components/hooks/useChat'
+import React, { useState, useEffect, useRef } from 'react'
+import { motion, useScroll, useMotionValueEvent } from 'framer-motion'
+import { ArrowRight, Sun, Moon, Search, MapPin, Ticket, Hotel, Car, Star, Gift, ChevronDown, ShoppingCart, MessageCircle, X } from 'lucide-react'
+import Button from '@/components/ui/button'
+import Input from '@/components/ui/input'
+import Link from 'next/link'
+import useChat from '@/components/hooks/useChat'
+import { motion, useScroll, useMotionValueEvent } from 'framer-motion'
+import { ArrowRight, Sun, Moon, Search, MapPin, Ticket, Hotel, Car, Star, Gift, ChevronDown, ShoppingCart, MessageCircle, X } from 'lucide-react'
+import Button from '@/components/ui/button';
+import input from '@/components/ui/input';
 import Link from 'next/link';
-import { useChat } from '../hooks/useChat';
+import  useChat  from '@/components/hooks/useChat';
 
 
 
@@ -92,7 +106,7 @@ const AIChat = () => {
           </div>
           <div className="flex-1 overflow-y-auto p-4 space-y-4">
             {messages.map(m => (
-              <div key={m.id} className={`${m.role === 'user' ? 'text-right' : 'text-left'}`}>
+              <div key={m.id} className={`${m.role === 'user'reac ? 'text-right' : 'text-left'}`}>
                 <span className={`inline-block p-2 rounded-lg ${m.role === 'user' ? 'bg-blue-100' : 'bg-gray-100'}`}>
                   {m.content}
                 </span>
@@ -115,6 +129,7 @@ const AIChat = () => {
     </div>
   )
 }
+
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false)

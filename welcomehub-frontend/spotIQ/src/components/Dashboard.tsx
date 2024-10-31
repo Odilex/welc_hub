@@ -1,4 +1,19 @@
-<<<<<<< HEAD:welcomehub-frontend/sportIq/src/components/Dashboard.tsx
+
+ HEAD:welcomehub-frontend/sportIq/src/components/Dashboard.tsx
+// This line should be removed or replaced with the correct file path
+// HEAD:welcomehub-frontend/sportIq/src/components/Dashboard.tsx
+
+// The rest of the file content should start here
+'use client'
+
+import { useState, useEffect } from "react"
+import { Bell, Home, MapPin, Settings, Sun, Wallet2, Calendar, Bus, Coffee, Beer, Cloud } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import Input from "@/components/ui/input"
+import Separator from "@/components/ui/separator"
+import useToast from "@/components/ui/use-toast"
+
 /*'use client'
 
 import { useState, useEffect } from "react"
