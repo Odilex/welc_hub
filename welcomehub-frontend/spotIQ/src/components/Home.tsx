@@ -1,4 +1,4 @@
-'use client'
+
 
 import React, { useState, useRef, useEffect } from 'react'
 import { motion, useScroll, useMotionValueEvent, useAnimation, useInView } from 'framer-motion'
@@ -6,9 +6,10 @@ import { ArrowRight, Sun, Moon, Search, MapPin, Calendar, Ticket, Hotel, Car, St
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import Link from 'next/link'
+// Import the useChat hook from the AI library
 import { useChat } from 'ai/react'
 import { Card, CardContent } from "@/components/ui/card"
-
+import  SelectValue  from 'react-select';
 const recommendationCategories = [
   {
     title: "Hotels",
@@ -149,21 +150,47 @@ export default function HomePage() {
             <Button variant="ghost" size="sm" onClick={toggleDarkMode} className="rounded-full">
               {darkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </Button>
+            // ...
+
             <select>
-              <SelectTrigger className="w-[100px] rounded-full">
-                <SelectValue placeholder="English" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="en">English</SelectItem>
-                <SelectItem value="fr">Français</SelectItem>
-                <SelectItem value="de">Deutsch</SelectItem>
-              </SelectContent>
+              <SelectValue placeholder="English" />
+              <option value="en">English</option>
+              <option value="fr">Français</option>
+              <option value="de">Deutsch</option>
             </select>
+            
+            // ...
+            
+            <Button type="submit" className="bg-blue-500 hover:bg-blue-600 text-lg">
+              <Search className="mr-2 h-5 w-5" /> Search
+            </Button>
+            
+            // ...
+            
+            <Button
+              variant="ghost"
+              size="icon"
+              className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10"
+              onClick={() => scroll(-300)}
+            >
+              <ChevronLeft className="h-6 w-6" />
+            </Button>
+            
+            <Button
+              variant="ghost"
+              size="icon"
+              className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10"
+              onClick={() => scroll(300)}
+            >
+              <ChevronRight className="h-6 w-6" />
+            </Button>
+            
+            // ...
             <Link href="/login">
-              <button variant="ghost" size="sm" className="rounded-full">Sign in</Button>
+              <Button variant="ghost" size="sm" className="rounded-full">Sign in</Button>
             </Link>
             <Link href="/signup">
-              <button variant="default" size="sm" className="rounded-full bg-blue-600 hover:bg-blue-700 text-white">Join Now</Button>
+              <Button className="rounded-full bg-blue-600 hover:bg-blue-700 text-white text-sm px-4 py-2">Join Now</Button>
             </Link>
           </div>
         </div>
